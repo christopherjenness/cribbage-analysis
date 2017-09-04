@@ -13,11 +13,7 @@ def deal_hand():
 def simulate_hand(strategy):
     initial_hand = deal_hand()
     hand = strategy(initial_hand)
-    print(initial_hand)
-    print('')
-    print(hand)
-    print('')
-    print(hand.score())
+    return hand
 
 
 def random_strategy(initial_hand):
