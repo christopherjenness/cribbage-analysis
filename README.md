@@ -14,10 +14,10 @@ This repo basically includes 3 files:
 I wrote 4 strategies for deciding which cards to keep
 * **Keep the cards with the highest score before the cut**.  This is a fairly good beginner strategy
 * **Keep the cards with the highest score after the cut**.  This is not a feasible strategy because it requires an oracle which could see the cut card.  However, it is a good ceiling on the best possible cribbage hands you could get.
-* **Keep the cards with the highest score after the cut**.  Again, not feasible, but a good lower bound.
+* **Keep the cards with the lowest score after the cut**.  Again, not feasible, but a good lower bound.
 * **Keep 4 random cards**.  I think this strategy is what my partner uses.
 
-## Analysis.
+## Analysis
 
 Below, I'm plotting 10,000 simulated hands for each strategy.  There's not much difference between keeping the 4 best cards with or without knowing what the cut card is.  Randomly throwing cards really hurts you.  It's hard to get points, but easy to randomly throw them away.
 
@@ -26,7 +26,7 @@ Below, I'm plotting 10,000 simulated hands for each strategy.  There's not much 
 The most important take aways are the average points per hand each strategy generates:
 * **Keeping the cards with the highest score before the cut** gets 8.2 points per hand
 * **Keeping the cards with the highest score after the cut** gets 9.1 points per hand
-* **Keeping the cards with the highest score after the cut** gets 1.6 points per hand
+* **Keeping the cards with the lowest score after the cut** gets 1.6 points per hand
 * **Keeping 4 random cards** gets 4.7 points per hand
 
 Whats interesting is that if all you do is keep the most scoring cards before the cut, you score only one point less than if you could make a perfect decision knowing what the cut card is.  I guess all the work I go through trying to calculate expected values in my head on the fly is a waste of time.
