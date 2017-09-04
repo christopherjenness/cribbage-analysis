@@ -97,13 +97,14 @@ class CribbageHand(pydealer.stack.Stack):
         return threes * 3
 
     def score_knobs(self):
-        test_suits = []
-        crib_suit = self._cards[4].suit
-        for card in self._cards[:4]:
-            if card.value == 'Jack':
-                test_suits.append(card.suit)
-        if crib_suit in test_suits:
-            return 1
+        if len(self._cards) == 5:
+            test_suits = []
+            crib_suit = self._cards[4].suit
+            for card in self._cards[:4]:
+                if card.value == 'Jack':
+                    test_suits.append(card.suit)
+            if crib_suit in test_suits:
+                return 1
         return 0
 
     def score_flush(self):
@@ -111,6 +112,7 @@ class CribbageHand(pydealer.stack.Stack):
         for card in self._cards[:3]:
             if card.suit != test_suit:
                 return 0
-        if self._cards[4].suit == test_suit:
-            return 5
+        if len(self._cards) == 5:
+            if self._cards[4].suit == test_suit:
+                return 5
         return 4
