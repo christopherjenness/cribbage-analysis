@@ -57,6 +57,6 @@ def print_strategy_means(all_scores):
 
 
 if __name__ == '__main__':
-    all_scores = calculate_scores(100000)
+    all_scores = calculate_scores(10000)
     print_strategy_means(all_scores)
     plot_score_distribution(all_scores)

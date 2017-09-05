@@ -63,3 +63,17 @@ def best_blind_strategy(initial_hand):
     final_hand = CribbageHand(list(best_hand._cards) +
                               [initial_hand._cards[6]])
     return final_hand
+
+def best_blind_strategy_3player(initial_hand):
+    """This strategy saves the most pre-cut points possible
+    for a 3 player hand"""
+    best_hand = None
+    for cards in itertools.combinations(initial_hand._cards[:5], 4):
+        hand = CribbageHand(list(cards))
+        if not best_hand:
+            best_hand = hand
+        if hand > best_hand:
+            best_hand = hand
+    final_hand = CribbageHand(list(best_hand._cards) +
+                              [initial_hand._cards[6]])
+    return final_hand
