@@ -31,13 +31,15 @@ The most important take aways are the average points per hand each strategy gene
 
 Whats interesting is that if all you do is keep the most scoring cards before the cut, you score only one point less than if you could make a perfect decision knowing what the cut card is.  I guess all the work I go through trying to calculate expected values in my head on the fly is a waste of time.
 
-What about **2 vs 3 player games**?  I always feel I score much less in 3 player games (due to the number of cards being less), but how strong is the effect? Below I simulated 10,000 games with 2 or 3 players, using the strategy where you save the best 4 card hand before the cut.
+What is the probability of getting a really good hand?  Using the strategy of keeping the best 4 cards, **you get a 15+ point hand 5.7% of the time.**  Just rare enough to feel really good, but still happen about once a game.
+
+Finally, what about **2 vs 3 player games**?  I always feel I score much less in 3 player games (due to the number of cards being less), but how strong is the effect? Below I simulated 10,000 games with 2 or 3 players, using the strategy where you save the best 4 card hand before the cut.
 
 ![2v3](plots/2v3.png)
 
 Three player games have a much higher probability of low scoring hands (2 and 4 points). The average hand is 6.5 in a three player game, **over 1.5 points per hand lower than a two player game**.  That's a lot.
 
 
+
 ## TODO
 - Implement more strategies
-- What percentage of hands are >15 pts? (Getting high scoring hands feels great).
