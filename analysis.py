@@ -15,9 +15,12 @@ def simulate_hands(strategy, n=10):
 
 def calculate_scores(n=100):
     random_scores = simulate_hands(strategy=simulation.random_strategy, n=n)
-    best_oracle_scores = simulate_hands(strategy=simulation.best_oracle_strategy, n=n)
-    worst_oracle_scores = simulate_hands(strategy=simulation.worst_oracle_strategy, n=n)
-    best_blind_scores = simulate_hands(strategy=simulation.best_blind_strategy, n=n)
+    best_oracle_scores = simulate_hands(strategy=simulation.best_oracle_strategy,
+                                        n=n)
+    worst_oracle_scores = simulate_hands(strategy=simulation.worst_oracle_strategy,
+                                         n=n)
+    best_blind_scores = simulate_hands(strategy=simulation.best_blind_strategy,
+                                       n=n)
     all_scores = {'random': random_scores,
                   'best_oracle': best_oracle_scores,
                   'worst_oracle': worst_oracle_scores,
@@ -54,6 +57,7 @@ def print_strategy_means(all_scores):
     'Strategy Average Scores:'
     for strategy in all_scores.keys():
         print(strategy, ': ', np.mean(all_scores[strategy]))
+
 
 def compare_2v3(n=100):
     two_scores = simulate_hands(simulation.best_blind_strategy, n=n)
