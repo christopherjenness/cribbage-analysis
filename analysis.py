@@ -55,8 +55,28 @@ def print_strategy_means(all_scores):
     for strategy in all_scores.keys():
         print(strategy, ': ', np.mean(all_scores[strategy]))
 
+def compare_2v3(n=100):
+    two_scores = simulate_hands(simulation.best_blind_strategy, n=n)
+    three_scores = simulate_hands(simulation.best_blind_strategy_3player, n=n)
+
+    print('')
+    print('Average 2 player points per hand: ', np.mean(two_scores))
+    print('Average 3 player points per hand: ', np.mean(three_scores))
+    plt.figure()
+    plt.hist(two_scores, bins=range(30), normed=1, alpha=0.5,
+             color='black', label='2 player hands')
+    plt.hist(three_scores, bins=range(30), normed=1, alpha=0.5,
+             color='red', label='3 player hands')
+    plt.title('Point distributions of two and three player games',
+              loc='left')
+    plt.xlabel('Points')
+    plt.ylabel('Fraction of hands')
+    plt.legend(loc=1)
+    plt.savefig('plots/2v3')
+
 
 if __name__ == '__main__':
     all_scores = calculate_scores(10000)
     print_strategy_means(all_scores)
     plot_score_distribution(all_scores)
+    compare_2v3(10000)
