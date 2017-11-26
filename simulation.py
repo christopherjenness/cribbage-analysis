@@ -64,6 +64,7 @@ def best_blind_strategy(initial_hand):
                               [initial_hand._cards[6]])
     return final_hand
 
+
 def best_blind_strategy_3player(initial_hand):
     """This strategy saves the most pre-cut points possible
     for a 3 player hand"""
